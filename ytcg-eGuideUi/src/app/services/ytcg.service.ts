@@ -9,6 +9,8 @@ export class YtcgService {
 
   constructor(private http: HttpClient){}
 
-  
+  getCardByName(name: string): any {
+    return this.http.get(`${this.baseUrl}?name=${name}`);
+  }
 
 }
