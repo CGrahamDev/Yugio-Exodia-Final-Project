@@ -39,3 +39,8 @@ IsOwned BIT,
 );
 
 GO 
+INSERT INTO [User] Values ('Guest', '00000000'
+);
+
+SELECT * FROM [User];
+SELECT * FROM [ytcg-eguideDB];

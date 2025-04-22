@@ -37,3 +37,5 @@ INSERT INTO [User] Values ('Guest', '00000000'
 DBCC CHECKIDENT ([User], RESEED, 0);
 
 SELECT * FROM [User];
+
+
