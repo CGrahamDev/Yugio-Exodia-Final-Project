@@ -23,19 +23,19 @@ public partial class YtcgEguiudeDbContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Name=DefaultConnection");
+        => optionsBuilder.UseSqlServer("Server=tcp:ytcg-eguide.database.windows.net,1433;Initial Catalog=ytcg-eguiudeDB;Persist Security Info=False;User ID=admin-YTCG;Password=exodiaIs_Cool!1;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<OwnedCard>(entity =>
         {
-            entity.HasNoKey();
+            entity.HasKey(e => e.Id).HasName("PK__OwnedCar__3214EC07CE1DBB9C");
 
-            entity.HasOne(d => d.Starter).WithMany()
+            entity.HasOne(d => d.Starter).WithMany(p => p.OwnedCards)
                 .HasForeignKey(d => d.StarterId)
                 .HasConstraintName("FK__OwnedCard__Start__60A75C0F");
 
-            entity.HasOne(d => d.User).WithMany()
+            entity.HasOne(d => d.User).WithMany(p => p.OwnedCards)
                 .HasForeignKey(d => d.UserId)
                 .HasConstraintName("FK__OwnedCard__UserI__5FB337D6");
         });

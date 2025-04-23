@@ -26,4 +26,6 @@ public partial class StarterPack
     public string Attribute { get; set; } = null!;
 
     public string? ImageUrl { get; set; }
+
+    public virtual ICollection<OwnedCard> OwnedCards { get; set; } = new List<OwnedCard>();
 }

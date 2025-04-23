@@ -44,3 +44,6 @@ INSERT INTO [User] Values ('Guest', '00000000'
 
 SELECT * FROM [User];
 SELECT * FROM [ytcg-eguideDB];
+
+ALTER TABLE OwnedCards
+ADD Id int IDENTITY(1,1) PRIMARY KEY;

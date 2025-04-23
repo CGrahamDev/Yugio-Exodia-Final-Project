@@ -11,6 +11,8 @@ public partial class OwnedCard
 
     public bool? IsOwned { get; set; }
 
+    public int Id { get; set; }
+
     public virtual StarterPack? Starter { get; set; }
 
     public virtual User? User { get; set; }
